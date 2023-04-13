@@ -1,16 +1,15 @@
 import API from '../../config/apis.json';
 
+const {BASE_URL, resources} = API;
+
 export const usersApi = async () => {
     try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const response = await fetch(`${BASE_URL}/${resources.users}`);
 
         if (response && response.ok && response.status === 200) {
             return response.json();
-        } else {
-            console.log(response);
-            //throw new Error(response);
         }
     } catch (error) {
-        throw new Error("Let chech error type first");
+        throw new Error("OOPS. Something wrong fetching users");
     }
 }

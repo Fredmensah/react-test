@@ -13,10 +13,11 @@ function App() {
 
   const getUsersFunc = async () => {
     const response = await usersApi();
+    
     if(response) {
       setUsers(response);
     } else {
-      // Work on error handling here...
+      alert("OOPS. There was an error fetching users");
     }
   }
 
